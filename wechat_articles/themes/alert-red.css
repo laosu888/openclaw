@@ -1,0 +1,63 @@
+/* 315 / 风险 / 打假 / 警示评论风 */
+body {
+  --primary-color: #991b1b;
+  --primary-light: #fef2f2;
+  --primary-dark: #7f1d1d;
+  --accent-color: #f59e0b;
+  --text-color: #1f2937;
+  --bg-color: #ffffff;
+}
+
+.wechat-article {
+  color: var(--text-color) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #111827 !important;
+}
+
+h2 {
+  background: linear-gradient(135deg, #111827, #991b1b) !important;
+  color: #ffffff !important;
+  padding: 10px 14px !important;
+  border-radius: 12px !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  margin-top: 28px !important;
+  margin-bottom: 16px !important;
+}
+
+blockquote {
+  border-left: 4px solid #991b1b !important;
+  background: #fef2f2 !important;
+  color: #7f1d1d !important;
+  border-radius: 8px !important;
+  padding: 12px 14px !important;
+}
+
+strong {
+  color: #991b1b !important;
+}
+
+hr {
+  border: none !important;
+  height: 1px !important;
+  background: linear-gradient(to right, rgba(153,27,27,.18), rgba(245,158,11,.38), rgba(153,27,27,.18)) !important;
+}
+
+ul li::marker, ol li::marker {
+  color: #991b1b !important;
+}
+
+a {
+  color: #991b1b !important;
+}
+
+img {
+  border-radius: 14px !important;
+}
+
+code {
+  background: #fff7ed !important;
+  color: #9a3412 !important;
+}
