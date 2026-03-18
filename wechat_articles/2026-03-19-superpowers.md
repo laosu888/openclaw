@@ -1,6 +1,6 @@
 ---
 title: GitHub 今日第一，不是模型，不是应用，而是一套 AI 开发“方法论”
-cover: ../wechat_images/2026-03-19-superpowers/cover.jpg
+cover: ../wechat_images/2026-03-19-superpowers-brave/cover.png
 ---
 
 # GitHub 今日第一，不是模型，不是应用，而是一套 AI 开发“方法论”
@@ -13,7 +13,7 @@ cover: ../wechat_images/2026-03-19-superpowers/cover.jpg
 
 它今天的热度非常夸张，直接冲到了榜首。
 
-![](../wechat_images/2026-03-19-superpowers/trending.png)
+![](../wechat_images/2026-03-19-superpowers-brave/body.jpg)
 
 如果只看名字，你可能会以为这又是一个“给 AI 加点插件”的东西。
 
@@ -54,8 +54,6 @@ cover: ../wechat_images/2026-03-19-superpowers/cover.jpg
 这些环节，很多时候还是人在硬兜。
 
 superpowers 想解决的，就是这一层。
-
-![](../wechat_images/2026-03-19-superpowers/repo.jpg)
 
 ## 它为什么今天能冲到第一
 
