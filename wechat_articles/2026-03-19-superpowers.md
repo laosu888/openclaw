@@ -55,6 +55,8 @@ cover: ../wechat_images/2026-03-19-superpowers-brave/cover.png
 
 superpowers 想解决的，就是这一层。
 
+![](../wechat_images/2026-03-19-superpowers-brave/subagents-arch.png)
+
 ## 它为什么今天能冲到第一
 
 因为它踩中的，不是一个边角需求。
@@ -103,6 +105,8 @@ superpowers 这套东西，本质上就是在给 AI 编程补秩序。
 这背后其实就是一句话：
 
 **把开发从一次性生成，变成标准化执行。**
+
+![](../wechat_images/2026-03-19-superpowers-brave/worktree.png)
 
 ## 这件事为什么重要
 
@@ -156,6 +160,8 @@ superpowers 之所以今天能冲上第一，本质上就是因为它刚好打�
 
 **AI 编程已经开始从“能力竞争”，走向“流程竞争”。**
 
+![](../wechat_images/2026-03-19-superpowers-brave/subagents-flow.png)
+
 ## 我真正看重的，不是这个项目本身
 
 说实话，GitHub 每天都会有爆款项目。
@@ -178,6 +184,8 @@ superpowers 最值得看的，不只是它今天热度高。
 - 有 review 节点
 - 有测试纪律
 - 有交付标准
+
+![](../wechat_images/2026-03-19-superpowers-brave/gitflow.jpeg)
 
 谁能把这些东西先组织起来，谁就更可能把 AI 从“写代码工具”升级成“软件团队操作系统”。
 
