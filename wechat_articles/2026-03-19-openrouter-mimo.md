@@ -76,7 +76,7 @@ cover: ../wechat_images/2026-03-19-mimo/xiaomi-mimo-page.jpg
 
 **Agent 底座模型** 这张牌桌。
 
-![](../wechat_images/2026-03-19-mimo/xiaomi-mimo-page.jpg)
+![](../wechat_images/2026-03-19-mimo-search/benchmark.jpg)
 
 ## 真正值得看的，不是“小米也做模型”
 
