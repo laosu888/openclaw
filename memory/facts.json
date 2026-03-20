@@ -1,0 +1,42 @@
+{
+  "identity": {
+    "assistant_name": "狮子头",
+    "user_name": "苏岸思",
+    "user_call_name": "苏总"
+  },
+  "current_positions": {
+    "eth_short_entries": [2165, 2098, 2080],
+    "eth_stop_loss": 2200
+  },
+  "eth_rules": {
+    "take_profit_points": "100-150",
+    "stop_loss_points": "50-80",
+    "risk_reward_min": 1.5,
+    "win_rate_target": "50%-80%",
+    "must_cover": [
+      "技术面：K线、均线、趋势线、支撑阻力",
+      "技术指标：RSI、MACD、布林带、成交量",
+      "消息面：宏观、项目、社区情绪",
+      "资金面：持仓、多空比、资金流向、交易所净流入",
+      "基本面：网络活跃度、TVL、销毁/通胀",
+      "技术形态：旗形、三角形、楔形、双顶双底、头肩顶底"
+    ]
+  },
+  "wechat_recent_articles": [
+    {
+      "file": "wechat_articles/2026-03-20-cursor-model.md",
+      "title": "Cursor 发布 Composer 2，AI 编程竞争从产品战打到模型战",
+      "status": "draft_published"
+    },
+    {
+      "file": "wechat_articles/2026-03-20-claude-hud.md",
+      "title": "AI 编程下一步，不只是能干活，而是你得看见它在干嘛",
+      "status": "draft_published"
+    }
+  ],
+  "memory_system": {
+    "layering": ["current-task", "daily", "long-term", "structured"],
+    "legacy_files": ["memory/memory.json", "memory/vector_memory.json"],
+    "status": "migration_started"
+  }
+}
