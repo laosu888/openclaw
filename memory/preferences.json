@@ -37,5 +37,14 @@
     "audio_first_skill": "elevenlabs-stt",
     "eth_first_skill": "eth-full-analysis",
     "jin10_fetch": "web_fetch https://www.jin10.com/"
+  },
+  "publishing_preferences": {
+    "wechat_default": true,
+    "prefer_existing_images_over_generated": true,
+    "image_layout": {
+      "cover": 1,
+      "inline": "3-5",
+      "orientation": "横版优先"
+    }
   }
 }

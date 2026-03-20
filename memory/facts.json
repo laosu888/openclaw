@@ -38,5 +38,23 @@
     "layering": ["current-task", "daily", "long-term", "structured"],
     "legacy_files": ["memory/memory.json", "memory/vector_memory.json"],
     "status": "migration_started"
-  }
+  },
+  "tools_and_workflow": {
+    "skill_rules": [
+      "先读取 SKILL.md，再按说明调用",
+      "jin10 走 web_fetch，不走旧方法",
+      "收到图片优先直接分析，收到语音优先转录"
+    ],
+    "wechat_tools": {
+      "reader": "x-reader",
+      "draft_publish": "wenyan publish",
+      "theme": "suzong-exclusive-v2.css"
+    },
+    "agent_reach_status": "GitHub 需 gh auth login；小红书需 Docker"
+  },
+  "important_lessons": [
+    "不要先敷衍或假装做到了；先尝试执行，再反馈结果",
+    "做不到就直说做不到，然后认真去做",
+    "长期记忆不收敏感密钥，不收一次性流水"
+  ]
 }
