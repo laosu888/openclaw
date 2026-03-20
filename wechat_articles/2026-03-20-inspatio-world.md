@@ -16,7 +16,7 @@
 
 **世界模型这件事，未必只能靠无限堆钱、堆卡、堆参数去推进。**
 
-![](../wechat_images/2026-03-20-inspatio-world/project-hero.png)
+![](../wechat_images/2026-03-20-inspatio-world/project-scene.png)
 
 ## 世界模型为什么重要
 
@@ -139,6 +139,8 @@
 - 影视与交互内容制作
 
 所以这类模型真正的想象力，不在于“更好看”，而在于“更能用”。
+
+![](../wechat_images/2026-03-20-inspatio-world/project-architecture.png)
 
 ## 这次最该高看的，不是情绪，而是路线意义
 
