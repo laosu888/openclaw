@@ -1,6 +1,6 @@
 ---
 title: AI 大模型竞争，已经开始从拼参数打到拼交付了
-cover: /root/.openclaw/workspace/wechat_images/2026-03-21-xai-enterprise/docs-release-notes-top.png
+cover: /root/.openclaw/workspace/wechat_images/2026-03-21-xai-enterprise-refreshed/lead.jpg
 ---
 
 # AI 大模型竞争，已经开始从拼参数打到拼交付了
@@ -166,7 +166,7 @@ PoC 能跑，并不代表能大规模上线。
 
 **企业市场真正值钱的地方，不是让客户“先试一下”，而是把试点变成长期合同。**
 
-![](../wechat_images/2026-03-21-xai-enterprise/economic-times-mid.png)
+![](../wechat_images/2026-03-21-xai-enterprise-refreshed/board-anthropic.png)
 
 ## 最后一句
 
@@ -197,4 +197,8 @@ xAI 把工程师送到企业客户现场，这件事表面看像是一个销售�
 这才是今天这条消息最值得高看一眼的地方。
 
 以上，既然看到这里了，如果觉得不错，随手点个赞、在看、转发三连吧，如果想第一时间收到推送，也可以给我个星标⭐～谢谢你看我的文章，我们，下次再见。
+。
+⭐～谢谢你看我的文章，我们，下次再见。
+。
+
 。
