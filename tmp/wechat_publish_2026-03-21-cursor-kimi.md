@@ -1,6 +1,6 @@
 ---
 title: Cursor 这次翻车，不只是因为它套了 Kimi
-cover: /root/.openclaw/workspace/wechat_images/2026-03-21-cursor-kimi/composer_bench.png
+cover: /root/.openclaw/workspace/wechat_images/2026-03-21-cursor-kimi/open_source_value.png
 ---
 
 # Cursor 这次翻车，不只是因为它套了 Kimi
