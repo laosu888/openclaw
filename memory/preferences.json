@@ -46,5 +46,10 @@
       "inline": "3-5",
       "orientation": "横版优先"
     }
+  },
+  "daily_brief_preferences": {
+    "ai_brief_language": "zh-CN",
+    "ai_brief_style": ["中文主线总结", "少量原题参考", "直接给判断"],
+    "avoid": ["整段英文标题堆砌", "英文直出"]
   }
 }
