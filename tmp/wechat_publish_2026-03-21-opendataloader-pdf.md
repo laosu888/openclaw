@@ -1,6 +1,6 @@
 ---
 title: AI 下半场真正抢的，不是模型，而是 PDF 和文档入口
-cover: /root/.openclaw/workspace/wechat_images/2026-03-21-opendataloader-pdf/web2.png
+cover: /root/.openclaw/workspace/wechat_images/2026-03-21-opendataloader-pdf-better/cover.png
 ---
 
 # AI 下半场真正抢的，不是模型，而是 PDF 和文档入口
@@ -19,7 +19,7 @@ cover: /root/.openclaw/workspace/wechat_images/2026-03-21-opendataloader-pdf/web
 
 而是谁先把最难啃、最脏、最复杂的文档入口吃下来。
 
-![](../wechat_images/2026-03-21-opendataloader-pdf/web2.png)
+![](../wechat_images/2026-03-21-opendataloader-pdf-better/cover.png)
 
 ## 为什么 PDF 这件事会突然变得这么重要
 
@@ -55,6 +55,8 @@ cover: /root/.openclaw/workspace/wechat_images/2026-03-21-opendataloader-pdf/web
 
 所以 PDF 这件事别看土，真到落地阶段，它反而越来越像一个硬门槛。
 
+![](../wechat_images/2026-03-21-opendataloader-pdf-better/annotated_pdf_crop.png)
+
 ## opendataloader-pdf 火，不是因为它会转文件，而是因为它更像一条入口管道
 
 这也是我觉得这个项目最值得写的地方。
@@ -80,8 +82,6 @@ cover: /root/.openclaw/workspace/wechat_images/2026-03-21-opendataloader-pdf/web
 而是在给 RAG、知识库、企业搜索、审计系统、自动问答、文档理解这些上层能力修路。
 
 这条路一旦修通，后面的价值就很大。
-
-![](../wechat_images/2026-03-21-opendataloader-pdf/benchmark_chart_crop.png)
 
 ## 现在真正值钱的，不是“能不能识别 PDF”，而是“能不能稳定识别复杂 PDF”
 
@@ -115,6 +115,8 @@ cover: /root/.openclaw/workspace/wechat_images/2026-03-21-opendataloader-pdf/web
 
 大家开始真的要拿这些东西接业务。
 
+![](../wechat_images/2026-03-21-opendataloader-pdf-better/benchmark_chart_crop.png)
+
 ## 另一个更大的点，是它把“可访问性”也一起卷进来了
 
 这个点其实很容易被忽略，但我觉得挺狠。
@@ -142,7 +144,7 @@ cover: /root/.openclaw/workspace/wechat_images/2026-03-21-opendataloader-pdf/web
 
 如果同一个底层引擎既能做结构化抽取，又能做自动标注和合规处理，那它的价值会明显抬高。
 
-![](../wechat_images/2026-03-21-opendataloader-pdf/web4.png)
+![](../wechat_images/2026-03-21-opendataloader-pdf-better/tagged_pdf_collab.png)
 
 ## 这说明 AI 下半场的竞争，正在从模型层下沉到数据入口层
 
@@ -176,8 +178,6 @@ cover: /root/.openclaw/workspace/wechat_images/2026-03-21-opendataloader-pdf/web
 它反映的是行业正在变成熟。
 
 大家开始从“模型很厉害”往“系统真的能跑”这个方向走了。
-
-![](../wechat_images/2026-03-21-opendataloader-pdf/badges_board.png)
 
 ## 最后一句
 
