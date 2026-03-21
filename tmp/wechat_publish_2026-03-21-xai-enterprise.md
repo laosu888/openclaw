@@ -168,6 +168,8 @@ PoC 能跑，并不代表能大规模上线。
 
 ![](../wechat_images/2026-03-21-xai-enterprise-refreshed/board-anthropic.png)
 
+![](../wechat_images/2026-03-21-xai-enterprise-refreshed/xai-api-og.png)
+
 ## 最后一句
 
 xAI 把工程师送到企业客户现场，这件事表面看像是一个销售动作升级。
@@ -202,3 +204,4 @@ xAI 把工程师送到企业客户现场，这件事表面看像是一个销售�
 。
 
 。
+
