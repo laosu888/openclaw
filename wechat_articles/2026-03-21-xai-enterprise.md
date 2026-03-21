@@ -14,6 +14,8 @@
 
 **谁更能把模型卖进企业，跑进业务，留在现场，变成真正可交付的系统。**
 
+![](../wechat_images/2026-03-21-xai-enterprise-refreshed/lead2.jpg)
+
 ## 为什么这条消息比看起来重要得多
 
 过去一段时间，大模型竞争最吸睛的部分，基本都集中在这些词上：
@@ -47,6 +49,8 @@
 企业买的是一整套能进入工作流、能接系统、能有人兜底、能持续交付的能力。
 
 这时候，竞争逻辑就变了。
+
+![](../wechat_images/2026-03-21-xai-enterprise-refreshed/board-xai.png)
 
 ## 以前拼模型，现在开始拼“驻场能力”了
 
@@ -110,6 +114,8 @@ AI 大模型行业表面上还在讲 frontier model，讲 reasoning，讲 agent�
 
 **大模型公司，开始不满足于只做模型供应商了。它们正在往更重的交付层压。**
 
+![](../wechat_images/2026-03-21-xai-enterprise-refreshed/board-openai.png)
+
 ## 为什么这对 OpenAI 和 Anthropic 都是压力
 
 这事不只是 xAI 一个公司的打法变化。
@@ -163,8 +169,6 @@ PoC 能跑，并不代表能大规模上线。
 
 ![](../wechat_images/2026-03-21-xai-enterprise-refreshed/board-anthropic.png)
 
-![](../wechat_images/2026-03-21-xai-enterprise-refreshed/xai-api-og.png)
-
 ## 最后一句
 
 xAI 把工程师送到企业客户现场，这件事表面看像是一个销售动作升级。
@@ -193,10 +197,6 @@ xAI 把工程师送到企业客户现场，这件事表面看像是一个销售�
 
 这才是今天这条消息最值得高看一眼的地方。
 
+![](../wechat_images/2026-03-21-xai-enterprise-refreshed/xai-api-og.png)
+
 以上，既然看到这里了，如果觉得不错，随手点个赞、在看、转发三连吧，如果想第一时间收到推送，也可以给我个星标⭐～谢谢你看我的文章，我们，下次再见。
-。
-⭐～谢谢你看我的文章，我们，下次再见。
-。
-
-。
-
