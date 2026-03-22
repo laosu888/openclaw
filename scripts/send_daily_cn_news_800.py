@@ -6,8 +6,8 @@ from datetime import datetime
 
 CHAT_ID = "o9cq804na37GPmeaMD5IOWO5y1D8@im.wechat"
 CHANNEL = "openclaw-weixin"
-MAX_AI = 6
-MAX_WORLD = 6
+MAX_AI = 4
+MAX_WORLD = 4
 
 AI_FEEDS = [
     ("TechCrunch AI", "https://techcrunch.com/category/artificial-intelligence/feed/"),
@@ -88,29 +88,24 @@ def summarize_ai(titles):
     lines = ["【AI资讯】"]
     used = 0
     if buckets["大厂与产品"]:
-        lines.append("- 大厂和产品动作还会是主线，市场盯的不是单次发布，而是谁在抢入口和用户习惯。")
-        for t in buckets["大厂与产品"][:2]:
-            lines.append(f"  - 参考：{t}")
+        lines.append("- 大厂和产品动作还是主线，核心是抢入口和用户习惯。")
+        lines.append(f"  - 参考：{buckets['大厂与产品'][0]}")
         used += 1
-    if buckets["Agent与落地"] and used < 3:
-        lines.append("- Agent 和工作流落地还在推进，重点越来越偏向能不能真正替人干活。")
-        for t in buckets["Agent与落地"][:2]:
-            lines.append(f"  - 参考：{t}")
+    if buckets["Agent与落地"] and used < 2:
+        lines.append("- Agent 落地继续推进，重点是能不能真正干活。")
+        lines.append(f"  - 参考：{buckets['Agent与落地'][0]}")
         used += 1
-    if buckets["监管与风险"] and used < 3:
-        lines.append("- 监管、版权和安全问题不会退场，AI 公司一边扩张，一边继续被追问边界。")
-        for t in buckets["监管与风险"][:2]:
-            lines.append(f"  - 参考：{t}")
+    if buckets["监管与风险"] and used < 2:
+        lines.append("- 监管、版权和安全问题还会继续压着行业走。")
+        lines.append(f"  - 参考：{buckets['监管与风险'][0]}")
         used += 1
-    if buckets["内容与创作"] and used < 3:
-        lines.append("- 内容生成和创作链路仍在被 AI 改造，平台竞争会继续往创作者端挤压。")
-        for t in buckets["内容与创作"][:2]:
-            lines.append(f"  - 参考：{t}")
+    if buckets["内容与创作"] and used < 2:
+        lines.append("- 内容和创作链路还在继续被 AI 改造。")
+        lines.append(f"  - 参考：{buckets['内容与创作'][0]}")
         used += 1
     if used == 0:
-        for t in titles[:3]:
-            lines.append(f"- 参考：{t}")
-    lines.append("- 判断：今天 AI 线大概率还是“大厂推进 + 产品落地 + 风险治理”并行。")
+        lines.append(f"- 参考：{titles[0]}")
+    lines.append("- 判断：AI 主线还是大厂推进、产品落地、风险治理并行。")
     return lines
 
 
@@ -138,24 +133,20 @@ def summarize_world(titles):
     lines = ["", "【国际新闻】"]
     used = 0
     if buckets["战争与地缘"]:
-        lines.append("- 国际线优先看地缘冲突，尤其是中东和大国博弈，这通常直接影响风险偏好和能源价格。")
-        for t in buckets["战争与地缘"][:2]:
-            lines.append(f"  - 参考：{t}")
+        lines.append("- 国际线先看地缘冲突，这通常直接影响风险偏好和能源价格。")
+        lines.append(f"  - 参考：{buckets['战争与地缘'][0]}")
         used += 1
-    if buckets["宏观与经济"] and used < 3:
-        lines.append("- 宏观层面重点盯油价、通胀和央行预期，很多市场波动最后都会回到这条线上。")
-        for t in buckets["宏观与经济"][:2]:
-            lines.append(f"  - 参考：{t}")
+    if buckets["宏观与经济"] and used < 2:
+        lines.append("- 宏观层面重点盯油价、通胀和央行预期。")
+        lines.append(f"  - 参考：{buckets['宏观与经济'][0]}")
         used += 1
-    if buckets["科技与产业"] and used < 3:
-        lines.append("- 科技和产业新闻更多是观察长期竞争格局，短线情绪还是会让位给地缘与宏观。")
-        for t in buckets["科技与产业"][:2]:
-            lines.append(f"  - 参考：{t}")
+    if buckets["科技与产业"] and used < 2:
+        lines.append("- 科技和产业线先看长期，短线还是让位给地缘与宏观。")
+        lines.append(f"  - 参考：{buckets['科技与产业'][0]}")
         used += 1
     if used == 0:
-        for t in titles[:3]:
-            lines.append(f"- 参考：{t}")
-    lines.append("- 判断：今天国际市场若继续围绕战争、能源、通胀交易，风险资产大概率还是偏谨慎。")
+        lines.append(f"- 参考：{titles[0]}")
+    lines.append("- 判断：国际市场若继续围绕战争、能源、通胀交易，风险资产仍偏谨慎。")
     return lines
 
 
@@ -164,7 +155,7 @@ def build_message():
     ai_titles = collect_titles(AI_FEEDS, MAX_AI)
     world_titles = collect_titles(WORLD_FEEDS, MAX_WORLD)
     lines = [
-        "早上好，苏总。今天 8 点简报来了。🦁",
+        "早上好，苏总。8 点简报。🦁",
         f"时间：{now}",
         "",
     ]
