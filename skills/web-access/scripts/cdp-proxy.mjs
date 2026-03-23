@@ -78,12 +78,23 @@ async function discoverChromePort() {
   }
 
   // 2. 扫描常用端口
-  const commonPorts = [9222, 9229, 9333];
+  const commonPorts = process.env.WEB_ACCESS_CHROME_PORT
+    ? [parseInt(process.env.WEB_ACCESS_CHROME_PORT), 18800, 9222, 9229, 9333]
+    : [18800, 9222, 9229, 9333];
   for (const port of commonPorts) {
     const ok = await checkPort(port);
     if (ok) {
-      console.log(`[CDP Proxy] 扫描发现 Chrome 调试端口: ${port}`);
-      return { port, wsPath: null };
+      let wsPath = null;
+      try {
+        const resp = await fetch(`http://127.0.0.1:${port}/json/version`);
+        const data = await resp.json();
+        if (data.webSocketDebuggerUrl) {
+          const u = new URL(data.webSocketDebuggerUrl);
+          wsPath = u.pathname;
+        }
+      } catch {}
+      console.log(`[CDP Proxy] 扫描发现 Chrome 调试端口: ${port}${wsPath ? ' (带 wsPath)' : ''}`);
+      return { port, wsPath };
     }
   }
 
@@ -127,8 +138,9 @@ async function connect() {
     chromeWsPath = discovered.wsPath;
   }
 
-  const wsUrl = getWebSocketUrl(chromePort, chromeWsPath);
+  const wsUrl = await getWebSocketUrl(chromePort, chromeWsPath);
   if (!wsUrl) throw new Error('无法获取 Chrome WebSocket URL');
+  console.log(`[CDP Proxy] 使用 WebSocket: ${wsUrl}`);
 
   return new Promise((resolve, reject) => {
     ws = new WS(wsUrl);
@@ -172,17 +184,16 @@ async function connect() {
       ws.removeEventListener?.('error', onError);
     }
 
-    // 兼容 Node 原生 WebSocket 和 ws 模块的事件 API
+    // 优先使用浏览器风格事件，兼容 Node 原生 WebSocket；若存在 ws.on 再附加一份兼容监听
+    ws.onopen = onOpen;
+    ws.onerror = onError;
+    ws.onclose = onClose;
+    ws.onmessage = onMessage;
     if (ws.on) {
       ws.on('open', onOpen);
       ws.on('error', onError);
       ws.on('close', onClose);
       ws.on('message', onMessage);
-    } else {
-      ws.addEventListener('open', onOpen);
-      ws.addEventListener('error', onError);
-      ws.addEventListener('close', onClose);
-      ws.addEventListener('message', onMessage);
     }
   });
 }

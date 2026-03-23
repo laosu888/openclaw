@@ -21,7 +21,7 @@ bash /root/.openclaw/workspace/skills/web-access/scripts/check-deps.sh
 ```
 
 - **Node.js 22+**：必需（使用原生 WebSocket）。版本低于 22 可用但需安装 `ws` 模块。
-- **Chrome remote-debugging**：在 Chrome 地址栏打开 `chrome://inspect/#remote-debugging`，勾选 **"Allow remote debugging for this browser instance"** 即可，可能需要重启浏览器。
+- **Chrome remote-debugging**：本地桌面环境下可在 Chrome 地址栏打开 `chrome://inspect/#remote-debugging` 并勾选 **"Allow remote debugging for this browser instance"**。如果在 VPS / OpenClaw 环境里，优先复用已运行的 CDP Chrome（常见端口 18800）。
 
 检查通过后再启动 CDP Proxy 执行操作，未通过则引导用户完成设置。
 

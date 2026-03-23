@@ -15,18 +15,29 @@ else
   exit 1
 fi
 
-# Chrome 调试端口（9222）— TCP 探测，不建立真实连接（跨平台）
-if ! node -e "
+# Chrome 调试端口探测（兼容 VPS / OpenClaw browser / 本地 Chrome）
+if ! PORT=$(node - <<'EOF'
 const net = require('net');
-const s = net.createConnection(9222, '127.0.0.1');
-s.on('connect', () => { process.exit(0); });
-s.on('error', () => process.exit(1));
-setTimeout(() => process.exit(1), 2000);
-" 2>/dev/null; then
-  echo "chrome: not connected — 请打开 chrome://inspect/#remote-debugging 并勾选 Allow remote debugging"
+const ports = [18800, 9222, 9229, 9333];
+(async () => {
+  for (const port of ports) {
+    const ok = await new Promise((resolve) => {
+      const s = net.createConnection(port, '127.0.0.1');
+      const timer = setTimeout(() => { s.destroy(); resolve(false); }, 1500);
+      s.on('connect', () => { clearTimeout(timer); s.destroy(); resolve(true); });
+      s.on('error', () => { clearTimeout(timer); resolve(false); });
+    });
+    if (ok) { console.log(port); process.exit(0); }
+  }
+  process.exit(1);
+})();
+EOF
+); then
+  echo "chrome: not connected — 未发现可用调试端口（已检查 18800/9222/9229/9333）"
   exit 1
 fi
-echo "chrome: ok (port 9222)"
+echo "chrome: ok (port $PORT)"
+export WEB_ACCESS_CHROME_PORT="$PORT"
 
 # CDP Proxy — 已运行则跳过，未运行则启动并等待连接
 HEALTH=$(curl -s --connect-timeout 2 "http://127.0.0.1:3456/health" 2>/dev/null)
