@@ -5,6 +5,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 
 CHAT_ID = "o9cq804na37GPmeaMD5IOWO5y1D8@im.wechat"
+ACCOUNT_ID = "05e7405683c0-im-bot"
 CHANNEL = "openclaw-weixin"
 MAX_AI = 4
 MAX_WORLD = 4
@@ -168,6 +169,7 @@ def main():
     msg = build_message()
     subprocess.run([
         "openclaw", "message", "send",
+        "--account", ACCOUNT_ID,
         "--channel", CHANNEL,
         "--target", CHAT_ID,
         "--message", msg,
