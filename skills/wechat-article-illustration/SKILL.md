@@ -80,9 +80,12 @@ description: 为微信公众号文章制定并执行配图工作流。用于写�
 
 - 需要更细的决策表 → 读 `references/decision-rules.md`
 - 需要最终出图前检查清单 → 读 `references/checklist.md`
+- 需要 AI 生图兜底规则、API key 说明、供应商选择 → 读 `references/ai-fallback.md`
 
 ## 调用其他技能的规则
 
 - 需要搜文章/项目/官网素材时，用搜索/网页读取能力。
-- 需要 AI 生图时，再调用已安装的生图技能（如你当前环境里可用的图像生成 skill）。
+- 需要 AI 生图时，先看 `references/ai-fallback.md`，再决定调用哪个生图能力。
+- 如果用户要照文章里的思路落地，优先按“单独的 AI 生图供应商 + API Key”方式接入。
+- 如果当前环境已经有成熟生图 skill，可直接复用，不重复造轮子。
 - 不要因为会生图，就跳过真实图搜索。
