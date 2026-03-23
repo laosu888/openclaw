@@ -1,5 +1,6 @@
 ---
 title: Token 要写进工资条了，硅谷开始按“AI 火力”重新定价员工
+cover: /root/.openclaw/workspace/wechat_images/2026-03-23-token-salary/cover-jensen-nvidia-cn.jpg
 ---
 
 # Token 要写进工资条了，硅谷开始按“AI 火力”重新定价员工
@@ -7,6 +8,8 @@ title: Token 要写进工资条了，硅谷开始按“AI 火力”重新定价�
 这两天有个话题很炸。
 
 黄仁勋提到，未来公司给工程师开的 offer，可能不只是年薪和股票，**还会写上 Token 额度**。
+
+![](../wechat_images/2026-03-23-token-salary/body-gtc-nvidia.jpg)
 
 听上去像段子。
 
@@ -54,6 +57,8 @@ title: Token 要写进工资条了，硅谷开始按“AI 火力”重新定价�
 **未来真正稀缺的，不只是会用 AI 的人，而是“能稳定、高效、低浪费地把 Token 变成结果的人”。**
 
 这就意味着，Token 很可能会像云资源预算、广告预算、销售线索预算一样，成为组织里一项明确的经营资源。
+
+![](../wechat_images/2026-03-23-token-salary/body-token-factory-36kr.jpg)
 
 ## 一人一周烧掉 33 个维基百科，不是夸张，是新现实
 
@@ -166,6 +171,8 @@ title: Token 要写进工资条了，硅谷开始按“AI 火力”重新定价�
 
 它会慢慢变成组织管理里的真货币。
 
+![](../wechat_images/2026-03-23-token-salary/body-rubin.jpg)
+
 ## 这件事最值得普通人警惕的一点
 
 很多人看到这种新闻，会觉得它只和硅谷、和大厂、和工程师有关。
@@ -183,6 +190,8 @@ title: Token 要写进工资条了，硅谷开始按“AI 火力”重新定价�
 如果公司已经开始把 Token 当预算、把 Agent 当工位配置，那它看的就是生产力。
 
 两边根本不是一个时代。
+
+![](../wechat_images/2026-03-23-token-salary/body-industrial.png)
 
 ## 最后
 
