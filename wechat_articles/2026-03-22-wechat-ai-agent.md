@@ -1,6 +1,6 @@
 ---
 title: AI 助手开始接入微信了，真正的变化不是聊天更方便
-cover: /root/.openclaw/workspace/wechat_images/2026-03-22-wechat-ai-agent/user-provided-wechat-plugin.jpg
+cover: /root/.openclaw/workspace/wechat_images/2026-03-22-wechat-ai-agent-tutorial/cover-wechat-clawbot.png
 ---
 
 # AI 助手开始接入微信了，真正的变化不是聊天更方便
@@ -25,7 +25,7 @@ AI 接入微信，表面看像是“多了一个聊天入口”，但真正的�
 
 所以，这篇不讲空话，直接讲怎么装、怎么配、怎么排错。
 
-![](../wechat_images/2026-03-22-wechat-ai-agent/user-provided-wechat-plugin.jpg)
+![](../wechat_images/2026-03-22-wechat-ai-agent-tutorial/body-wechat-plugin.jpg)
 
 # 微信 OpenClaw 安装配置指南
 
@@ -176,7 +176,7 @@ $OPENCLAW_STATE_DIR/openclaw-weixin/
 
 这一段说白了，就是把扫码拿到的登录凭据，正式落进 OpenClaw 能读取的账户结构里。
 
-![](../wechat_images/2026-03-22-wechat-ai-agent/wechat-green.png)
+![](../wechat_images/2026-03-22-wechat-ai-agent-tutorial/body-github-plugin.png)
 
 ---
 
@@ -201,6 +201,8 @@ openclaw config get channels.openclaw-weixin
 ```
 
 如果你前面文件都放对了，这一步就是把微信渠道真正打开。
+
+![](../wechat_images/2026-03-22-wechat-ai-agent-tutorial/body-wechat-green-board.png)
 
 ---
 
@@ -309,7 +311,7 @@ echo $OPENCLAW_STATE_DIR
 
 真正折腾过一次就知道，**大多数问题都不是复杂 bug，而是路径、格式、重启这三件小事。**
 
-![](../wechat_images/2026-03-22-wechat-ai-agent/wechat-logo-board.png)
+![](../wechat_images/2026-03-22-wechat-ai-agent-tutorial/body-wechat-logo-board.png)
 
 ### 📝 快速验证命令
 
