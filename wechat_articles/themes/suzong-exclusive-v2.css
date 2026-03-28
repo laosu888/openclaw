@@ -1,81 +1,80 @@
-/* 苏总专用 v2 - 公众号文章主题
-   风格目标：克制、锋利、适合 AI / 科技 / 项目解析 / 观点文
+/* suzong-exclusive-v2
+   目标：更接近你之前公众号成品的阅读感
+   关键词：公众号原生、舒服、清晰、有一点观点锋芒，但不过度设计
 */
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-family: Optima-Regular, PingFangSC-light, PingFangTC-light, "PingFang SC", Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 17px;
-  line-height: 1.9;
-  color: #1f2329;
+  line-height: 1.82;
+  color: #3a3a3a;
   letter-spacing: 0.2px;
   background: #ffffff;
 }
 
 h1 {
-  font-size: 28px;
-  line-height: 1.35;
-  font-weight: 800;
-  color: #111111;
-  margin: 0 0 24px 0;
-  padding: 0;
+  font-size: 30px;
+  line-height: 1.38;
+  font-weight: 700;
+  color: #202020;
+  text-align: left;
+  margin: 8px 0 28px;
 }
 
 h2 {
   font-size: 22px;
-  line-height: 1.45;
-  font-weight: 800;
-  color: #111111;
-  margin: 34px 0 16px 0;
-  padding-left: 12px;
-  border-left: 4px solid #111111;
+  line-height: 1.5;
+  font-weight: 700;
+  color: #222222;
+  margin: 34px 0 18px;
 }
 
 h3 {
   font-size: 19px;
-  line-height: 1.5;
+  line-height: 1.55;
   font-weight: 700;
-  color: #222222;
-  margin: 26px 0 12px 0;
+  color: #2a2a2a;
+  margin: 26px 0 14px;
 }
 
 p {
-  margin: 0 0 18px 0;
-  color: #2a2f36;
+  margin: 0 0 18px;
+  color: #3f3f3f;
+  text-align: justify;
 }
 
 strong {
-  color: #111111;
+  color: #202020;
   font-weight: 700;
 }
 
 em {
-  color: #444444;
+  color: #666666;
 }
 
 blockquote {
-  margin: 24px 0;
+  margin: 22px 0;
   padding: 14px 18px;
-  background: #f6f7f9;
-  border-left: 4px solid #111111;
-  color: #2f343b;
+  background: #f8f8f8;
+  border-left: 4px solid #d8d8d8;
+  color: #444444;
   font-size: 16px;
-  line-height: 1.85;
+  line-height: 1.8;
 }
 
 ul, ol {
-  margin: 12px 0 20px 1.2em;
+  margin: 12px 0 20px 1.25em;
   padding: 0;
 }
 
 li {
   margin: 8px 0;
-  color: #2a2f36;
+  color: #404040;
 }
 
 a {
-  color: #0f6fff;
+  color: #576b95;
   text-decoration: none;
-  border-bottom: 1px solid rgba(15,111,255,0.25);
 }
 
 img {
@@ -84,32 +83,33 @@ img {
   max-width: 100%;
   height: auto;
   margin: 24px auto;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 
 hr {
   border: none;
-  border-top: 1px solid #e7e9ee;
+  border-top: 1px solid #ececec;
   margin: 28px 0;
 }
 
 code {
-  font-family: "SFMono-Regular", Consolas, Monaco, monospace;
+  font-family: Menlo, Consolas, Monaco, monospace;
   font-size: 0.92em;
-  background: #f3f5f7;
-  color: #c7254e;
-  padding: 2px 6px;
-  border-radius: 6px;
+  background: #f5f5f5;
+  color: #7a1f1f;
+  padding: 2px 5px;
+  border-radius: 4px;
 }
 
 pre {
-  background: #111111;
-  color: #f5f5f5;
-  padding: 16px;
-  border-radius: 10px;
+  background: #f6f6f6;
+  color: #2f2f2f;
+  padding: 14px 16px;
+  border-radius: 6px;
   overflow-x: auto;
   line-height: 1.7;
-  margin: 18px 0 24px 0;
+  margin: 18px 0 24px;
+  border: 1px solid #ececec;
 }
 
 pre code {
@@ -121,19 +121,19 @@ pre code {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 18px 0 24px 0;
+  margin: 18px 0 24px;
   font-size: 15px;
 }
 
 th, td {
-  border: 1px solid #e8eaed;
+  border: 1px solid #e8e8e8;
   padding: 10px 12px;
   text-align: left;
 }
 
 th {
-  background: #f6f7f9;
-  color: #111111;
+  background: #f8f8f8;
+  color: #222222;
   font-weight: 700;
 }
 
@@ -144,6 +144,6 @@ figure {
 figcaption {
   text-align: center;
   font-size: 13px;
-  color: #7a8088;
+  color: #888888;
   margin-top: 8px;
 }
