@@ -35,10 +35,20 @@ def update_config(data: dict[str, Any], args: argparse.Namespace) -> dict[str, A
     if not isinstance(plugins, dict):
         plugins = {}
 
+    plugin_dir = str((args.workspace / ".openclaw" / "extensions" / PLUGIN_ID).resolve())
+
     allow = plugins.get("allow")
     if not isinstance(allow, list):
         allow = []
     allow = unique_strings([*(item for item in allow if isinstance(item, str)), PLUGIN_ID])
+
+    load = plugins.get("load")
+    if not isinstance(load, dict):
+        load = {}
+    load_paths = load.get("paths")
+    if not isinstance(load_paths, list):
+        load_paths = []
+    load_paths = unique_strings([*(item for item in load_paths if isinstance(item, str)), plugin_dir])
 
     entries = plugins.get("entries")
     if not isinstance(entries, dict):
@@ -73,6 +83,10 @@ def update_config(data: dict[str, Any], args: argparse.Namespace) -> dict[str, A
     }
 
     plugins["allow"] = allow
+    plugins["load"] = {
+        **load,
+        "paths": load_paths,
+    }
     plugins["entries"] = entries
 
     return {

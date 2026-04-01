@@ -25,6 +25,7 @@ Subcommands:
 - `closeout-turn`: run `closure-report` and `auto-memory-turn` together as one session closeout step
 - `closeout-session`: recover the latest real session turn and run `closeout-turn` on it while skipping heartbeat / reminder / dispatch noise by default
 - `scripts/enable_auto_session_closeout_plugin.py`: enable the workspace-local `auto-session-closeout` plugin so successful user turns auto-run `closeout-session --latest-turn-only --apply --apply-memory`
+  and pin the plugin directory into `plugins.load.paths` so OpenClaw treats it as an explicit trusted source
 - `compact-task`: compress active task state into fixed fields
 - `extract-memory`: extract facts, preferences, tasks, and URLs from conversation text
 - `auto-memory-turn`: extract one turn and only apply memory when the signal is strong enough
