@@ -24,6 +24,7 @@ Subcommands:
 - `closure-report`: turn execution notes into a final report with verified / not verified / risks / next step
 - `closeout-turn`: run `closure-report` and `auto-memory-turn` together as one session closeout step
 - `closeout-session`: recover the latest real session turn and run `closeout-turn` on it while skipping heartbeat / reminder / dispatch noise by default
+- `scripts/enable_auto_session_closeout_plugin.py`: enable the workspace-local `auto-session-closeout` plugin so successful user turns auto-run `closeout-session --latest-turn-only --apply --apply-memory`
 - `compact-task`: compress active task state into fixed fields
 - `extract-memory`: extract facts, preferences, tasks, and URLs from conversation text
 - `auto-memory-turn`: extract one turn and only apply memory when the signal is strong enough
@@ -62,6 +63,7 @@ python3 scripts/openclaw_harness.py closure-report --goal "推进 OpenClaw harne
 python3 scripts/openclaw_harness.py closeout-turn --goal "推进 OpenClaw harness" --text "Verified: ran tests"
 python3 scripts/openclaw_harness.py closeout-session --agent-id main
 python3 scripts/openclaw_harness.py closeout-session --agent-id main --apply
+python3 scripts/openclaw_harness.py closeout-session --agent-id main --session-id 123 --latest-turn-only --apply --apply-memory --run-id run-123
 python3 scripts/openclaw_harness.py compact-task
 python3 scripts/openclaw_harness.py extract-memory --text "以后默认简短回复，不要官腔"
 python3 scripts/openclaw_harness.py auto-memory-turn --text "以后默认简短回复，不要官腔"
@@ -77,6 +79,7 @@ python3 scripts/openclaw_harness.py verify-dream
 ./scripts/nightly_dream.sh
 ./scripts/install_nightly_dream_cron.sh
 python3 scripts/archive_stale_weixin_queue.py
+python3 scripts/enable_auto_session_closeout_plugin.py
 ```
 
 ## Memory Safety
@@ -86,6 +89,7 @@ python3 scripts/archive_stale_weixin_queue.py
 - `closeout-session` is the explicit day-to-day bridge from real session logs into the same closeout + auto-memory path used elsewhere
 - when no `--session-id` / `--session-file` is given, it scans the latest few session logs and picks the newest real non-internal turn
 - by default it skips internal turns such as heartbeat prompts, scheduled reminders, and dispatch stage prompts
+- add `--latest-turn-only` when you want the current session's newest turn only and do not want fallback to older real turns
 - add `--include-internal` only when you intentionally want to close out one of those internal turns
 - add `--apply` only when the extracted result is worth keeping
 - `--apply` writes to:
@@ -171,6 +175,7 @@ These helpers operationalize the workspace rules that previously lived only in d
 - dispatch runs add local runtime state so stage-by-stage execution can progress instead of staying static
 - execution / verification stage completion now also emits a reusable closeout object so final closeout and memory extraction can share one path
 - `closeout-session` gives normal day-to-day sessions an inspectable entrypoint into that same closeout object path, even before a native runtime hook is chosen
+- `scripts/enable_auto_session_closeout_plugin.py` binds that same closeout path to a native workspace plugin, so successful user-triggered `main` turns auto-close out by default
 - add `--apply-closeout-memory` on `dispatch-update` when you want that closeout object to write into structured auto-memory immediately
 - add `--apply-closeout-memory` on `dispatch-launch --execute --auto-update` when you want native stage completion to update the run and apply closeout memory in one step
 - add `--apply-closeout-memory` on `dispatch-sync-session` when the recovered session result should also write structured closeout memory

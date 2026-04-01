@@ -3226,6 +3226,7 @@ def find_latest_session_closeout_turn(
     session_id: str | None = None,
     session_file: str | None = None,
     include_internal: bool = False,
+    latest_turn_only: bool = False,
 ) -> dict[str, Any]:
     session_paths = _candidate_session_log_paths(
         agent_id=agent_id,
@@ -3253,7 +3254,7 @@ def find_latest_session_closeout_turn(
             message = record.get("message", {})
             role = message.get("role")
             if role == "user":
-                if current_turn and current_turn.get("reply_text"):
+                if current_turn:
                     turns.append(current_turn)
                 current_turn = {
                     "prompt_text": _join_message_text(message),
@@ -3285,13 +3286,46 @@ def find_latest_session_closeout_turn(
                     if item["text"].startswith("Approval required "):
                         current_turn["approval_requests"].append(item["text"])
 
-        if current_turn and current_turn.get("reply_text"):
+        if current_turn:
             turns.append(current_turn)
         total_turns += len(turns)
 
-        for turn in reversed(turns):
+        candidate_turns = [turns[-1]] if latest_turn_only and turns else list(reversed(turns))
+        for turn in candidate_turns:
             internal_prompt = _is_internal_session_prompt(turn["prompt_text"])
+            if not turn.get("reply_text"):
+                if latest_turn_only:
+                    return {
+                        "found": False,
+                        "reason": "latest_turn_missing_reply",
+                        "agent_id": agent_id,
+                        "session_path": str(session_path),
+                        "session_id": session_path.stem,
+                        "prompt_text": turn["prompt_text"],
+                        "prompt_timestamp": turn["prompt_timestamp"],
+                        "internal_prompt": internal_prompt,
+                        "considered_turns": total_turns,
+                        "searched_session_paths": searched_paths,
+                    }
+                continue
             if internal_prompt and not include_internal:
+                if latest_turn_only:
+                    return {
+                        "found": False,
+                        "reason": "latest_turn_internal_prompt",
+                        "agent_id": agent_id,
+                        "session_path": str(session_path),
+                        "session_id": session_path.stem,
+                        "prompt_text": turn["prompt_text"],
+                        "prompt_timestamp": turn["prompt_timestamp"],
+                        "reply_text": turn["reply_text"],
+                        "commentary_text": turn["commentary_text"],
+                        "approval_requests": turn["approval_requests"],
+                        "error_messages": turn["error_messages"],
+                        "internal_prompt": True,
+                        "considered_turns": total_turns,
+                        "searched_session_paths": searched_paths,
+                    }
                 continue
             goal_suggestion = _derive_goal_from_session_prompt(turn["prompt_text"])
             return {
@@ -3332,6 +3366,7 @@ def build_session_closeout(
     session_id: str | None = None,
     session_file: str | None = None,
     include_internal: bool = False,
+    latest_turn_only: bool = False,
 ) -> dict[str, Any]:
     session_turn = find_latest_session_closeout_turn(
         agent_id=agent_id,
@@ -3339,6 +3374,7 @@ def build_session_closeout(
         session_id=session_id,
         session_file=session_file,
         include_internal=include_internal,
+        latest_turn_only=latest_turn_only,
     )
     if not session_turn.get("found"):
         return {
@@ -3362,11 +3398,17 @@ def build_session_closeout(
     }
 
 
-def apply_session_closeout(workspace: Path, payload: dict[str, Any]) -> dict[str, Any]:
+def apply_session_closeout(
+    workspace: Path,
+    payload: dict[str, Any],
+    run_id: str | None = None,
+    source: str | None = None,
+) -> dict[str, Any]:
     return apply_closeout_turn(
         workspace=workspace,
         payload=payload["closeout_turn"],
-        source=f"session:{payload['agent_id']}:{payload['session_id']}",
+        run_id=run_id,
+        source=source or f"session:{payload['agent_id']}:{payload['session_id']}",
     )
 
 
@@ -4585,6 +4627,9 @@ def build_parser() -> argparse.ArgumentParser:
     session_closeout_parser.add_argument("--apply-memory", action="store_true")
     session_closeout_parser.add_argument("--apply", action="store_true")
     session_closeout_parser.add_argument("--include-internal", action="store_true")
+    session_closeout_parser.add_argument("--latest-turn-only", action="store_true")
+    session_closeout_parser.add_argument("--run-id")
+    session_closeout_parser.add_argument("--source")
     session_closeout_parser.add_argument("--format", choices=("json", "markdown"), default="markdown")
 
     return parser
@@ -4863,9 +4908,15 @@ def main() -> int:
             session_id=args.session_id,
             session_file=args.session_file,
             include_internal=args.include_internal,
+            latest_turn_only=args.latest_turn_only,
         )
         if args.apply and payload.get("found"):
-            payload["persist_result"] = apply_session_closeout(Path(args.workspace), payload)
+            payload["persist_result"] = apply_session_closeout(
+                Path(args.workspace),
+                payload,
+                run_id=args.run_id,
+                source=args.source,
+            )
         dump(payload, args.format, render_session_closeout_markdown)
         return 0
 

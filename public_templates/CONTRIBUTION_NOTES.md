@@ -25,6 +25,10 @@ Safe candidates:
 - `workspace/memory/preferences.json`
 - `workspace/memory/facts.json`
 - `workspace/.gitignore`
+- `workspace/.openclaw/extensions/auto-session-closeout/`
+- `scripts/openclaw_harness.py`
+- `scripts/test_openclaw_harness.py`
+- `scripts/enable_auto_session_closeout_plugin.py`
 
 ## What Not To Contribute
 

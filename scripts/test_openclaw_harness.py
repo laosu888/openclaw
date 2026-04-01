@@ -890,10 +890,151 @@ class RouteTests(unittest.TestCase):
                 apply_memory=False,
                 session_file=str(session_file),
             )
-            persist_result = harness.apply_session_closeout(workspace, payload)
+            persist_result = harness.apply_session_closeout(
+                workspace,
+                payload,
+                run_id="run-123",
+                source="auto-session-closeout:main:session-1:run-123",
+            )
             persisted = json.loads(Path(persist_result["json"]).read_text(encoding="utf-8"))
-            self.assertEqual(persisted["source"], "session:main:session-1")
+            self.assertEqual(persisted["source"], "auto-session-closeout:main:session-1:run-123")
+            self.assertEqual(persisted["run_id"], "run-123")
             self.assertTrue(Path(persist_result["markdown"]).exists())
+
+    def test_find_latest_session_closeout_turn_latest_turn_only_does_not_fall_back(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            session_file = root / "session-1.jsonl"
+            session_file.write_text(
+                "\n".join(
+                    [
+                        json.dumps(
+                            {
+                                "timestamp": "2026-04-01T10:00:00.000Z",
+                                "message": {
+                                    "role": "user",
+                                    "content": [{"type": "text", "text": "继续优化 OpenClaw harness"}],
+                                },
+                            },
+                            ensure_ascii=False,
+                        ),
+                        json.dumps(
+                            {
+                                "timestamp": "2026-04-01T10:00:05.000Z",
+                                "message": {
+                                    "role": "assistant",
+                                    "content": [
+                                        {
+                                            "type": "text",
+                                            "text": "Verified: ran harness tests",
+                                            "textSignature": json.dumps({"phase": "final_answer"}, ensure_ascii=False),
+                                        }
+                                    ],
+                                },
+                            },
+                            ensure_ascii=False,
+                        ),
+                        json.dumps(
+                            {
+                                "timestamp": "2026-04-01T10:05:00.000Z",
+                                "message": {
+                                    "role": "user",
+                                    "content": [{"type": "text", "text": "Read HEARTBEAT.md if it exists"}],
+                                },
+                            },
+                            ensure_ascii=False,
+                        ),
+                        json.dumps(
+                            {
+                                "timestamp": "2026-04-01T10:05:02.000Z",
+                                "message": {
+                                    "role": "assistant",
+                                    "content": [
+                                        {
+                                            "type": "text",
+                                            "text": "HEARTBEAT_OK",
+                                            "textSignature": json.dumps({"phase": "final_answer"}, ensure_ascii=False),
+                                        }
+                                    ],
+                                },
+                            },
+                            ensure_ascii=False,
+                        ),
+                    ]
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+
+            result = harness.find_latest_session_closeout_turn(
+                agent_id="main",
+                session_file=str(session_file),
+                latest_turn_only=True,
+            )
+            self.assertFalse(result["found"])
+            self.assertEqual(result["reason"], "latest_turn_internal_prompt")
+            self.assertEqual(result["prompt_text"], "Read HEARTBEAT.md if it exists")
+
+    def test_build_session_closeout_latest_turn_only_returns_skip_for_missing_reply(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            workspace = Path(tmpdir)
+            (workspace / "memory").mkdir(parents=True)
+            session_file = workspace / "session-1.jsonl"
+            session_file.write_text(
+                "\n".join(
+                    [
+                        json.dumps(
+                            {
+                                "timestamp": "2026-04-01T10:00:00.000Z",
+                                "message": {
+                                    "role": "user",
+                                    "content": [{"type": "text", "text": "继续优化 OpenClaw harness"}],
+                                },
+                            },
+                            ensure_ascii=False,
+                        ),
+                        json.dumps(
+                            {
+                                "timestamp": "2026-04-01T10:00:05.000Z",
+                                "message": {
+                                    "role": "assistant",
+                                    "content": [
+                                        {
+                                            "type": "text",
+                                            "text": "Verified: ran harness tests",
+                                            "textSignature": json.dumps({"phase": "final_answer"}, ensure_ascii=False),
+                                        }
+                                    ],
+                                },
+                            },
+                            ensure_ascii=False,
+                        ),
+                        json.dumps(
+                            {
+                                "timestamp": "2026-04-01T10:10:00.000Z",
+                                "message": {
+                                    "role": "user",
+                                    "content": [{"type": "text", "text": "继续"}],
+                                },
+                            },
+                            ensure_ascii=False,
+                        ),
+                    ]
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+
+            payload = harness.build_session_closeout(
+                workspace=workspace,
+                agent_id="main",
+                min_items=2,
+                apply_memory=False,
+                session_file=str(session_file),
+                latest_turn_only=True,
+            )
+            self.assertFalse(payload["found"])
+            self.assertEqual(payload["reason"], "latest_turn_missing_reply")
 
     def test_find_latest_session_closeout_turn_falls_back_to_older_real_session_file(self):
         with tempfile.TemporaryDirectory() as tmpdir:

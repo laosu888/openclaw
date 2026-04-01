@@ -13,7 +13,11 @@ memory/dreams/
 memory/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md
 MEMORY.md
 HEARTBEAT.md
-.openclaw/
+.openclaw/*
+!.openclaw/extensions/
+.openclaw/extensions/*
+!.openclaw/extensions/auto-session-closeout/
+!.openclaw/extensions/auto-session-closeout/**
 .DS_Store
 __pycache__/
 *.pyc
