@@ -4,15 +4,17 @@
 
 - `CONTRIBUTION_NOTES.md`
 - `PR_DRAFT.md`
-- `workspace/`
+- `context/`
+- `agents/`
+- `scripts/`
 
 ## If You Later Clone Your Fork
 
-1. Pick a target path inside the repo, for example `templates/workspace/`
+1. From the repo root that contains this bundle, pick a target path inside the destination repo, for example `templates/workspace/`
 2. Run:
 
 ```bash
-/root/.openclaw/workspace/scripts/install_public_workspace_template.sh /path/to/repo templates/workspace
+./scripts/install_public_workspace_template.sh /path/to/repo templates/workspace
 ```
 
 3. Review the copied files
@@ -24,9 +26,9 @@
 Use:
 
 ```bash
-/root/.openclaw/workspace/scripts/package_public_workspace.sh
+./scripts/package_public_workspace.sh
 ```
 
 Archive path:
 
-`/root/.openclaw/workspace/dist/public-workspace-template.tar.gz`
+`dist/public-workspace-template.tar.gz`

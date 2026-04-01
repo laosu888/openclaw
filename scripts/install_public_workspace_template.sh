@@ -17,10 +17,15 @@ if [[ ! -d "$TARGET_REPO_DIR" ]]; then
   exit 1
 fi
 
-"$EXPORT_SCRIPT" >/dev/null
+if [[ -d "$ROOT_DIR/public_templates/workspace" && -f "$EXPORT_SCRIPT" ]]; then
+  "$EXPORT_SCRIPT" >/dev/null
+  SOURCE_DIR="$ROOT_DIR/dist/public-workspace-template"
+else
+  SOURCE_DIR="$ROOT_DIR"
+fi
 
 rm -rf "$TARGET_DIR"
 mkdir -p "$TARGET_DIR"
-cp -R "$ROOT_DIR/dist/public-workspace-template"/. "$TARGET_DIR"/
+tar -C "$SOURCE_DIR" --exclude='./dist' -cf - . | tar -C "$TARGET_DIR" -xf -
 
 echo "Installed public workspace template to: $TARGET_DIR"

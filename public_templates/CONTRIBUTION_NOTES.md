@@ -14,6 +14,7 @@ Safe candidates:
 - `workspace/TOOLS.md`
 - `workspace/MEMORY.md`
 - `workspace/context/`
+- `workspace/context/HARNESS_TOOLS.md` when exporting the public bundle
 - `workspace/agents/claude-style/`
 - `workspace/agents/coordinator/AGENTS.md`
 - `workspace/agents/general-purpose/AGENTS.md`
@@ -29,6 +30,13 @@ Safe candidates:
 - `scripts/openclaw_harness.py`
 - `scripts/test_openclaw_harness.py`
 - `scripts/enable_auto_session_closeout_plugin.py`
+- `scripts/test_enable_auto_session_closeout_plugin.py`
+- `scripts/install_public_workspace_template.sh`
+- `scripts/package_public_workspace.sh`
+- `scripts/nightly_dream.sh`
+- `scripts/install_nightly_dream_cron.sh`
+- `scripts/upsert_nightly_dream_cron.py`
+- `scripts/archive_stale_weixin_queue.py`
 
 ## What Not To Contribute
 
